@@ -9,7 +9,6 @@ function BlogPost() {
 
     const params = useParams()
     const blogId: string = params.blogId as string;
-    console.log('ass',blogId)
     const myPost: Post | undefined = myCollections['blog'].find((post: Post) => (
         post.url === blogId))
 
@@ -19,7 +18,7 @@ function BlogPost() {
     
 
     useEffect(() => {
-      fetch(`/blog/${blogId}.txt`)
+      fetch(`/myWebsite/blog/${blogId}.txt`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error('Failed to fetch the file');
