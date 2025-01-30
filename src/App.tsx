@@ -1,34 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
+import Home from "./components/Home";
+import Layout from "./components/Layout"
+import PostsLayout from "./components/PostsLayout";
+import NoPage from "./components/NoPage";
+import BlogPost from "./components/BlogPost";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='projects' element={<PostsLayout title={'projects'}/>}/>
+          <Route path='blog' element={<PostsLayout title={'blog'}/>}/>
+          <Route path='blog/:blogId' element={<BlogPost/>}/>
+          <Route 
+            path='resume'
+            element={<Navigate to="https://docs.google.com/document/d/1zm-OfQVMPlOHLiPrOa5dV4B50H4PQ3lI/edit?usp=sharing&ouid=116599078357656932597&rtpof=true&sd=true" />}
+          />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </Router>
   )
 }
 
