@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router";
 import Home from "./components/Home";
 import Layout from "./components/Layout"
 import PostsLayout from "./components/PostsLayout";
@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/myWebsite/' element={<Layout />}>
+        <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='projects' element={<PostsLayout title={'projects'}/>}/>
           <Route path='blog' element={<PostsLayout title={'blog'}/>}/>
