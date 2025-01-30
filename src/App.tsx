@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/myWebsite' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='projects' element={<PostsLayout title={'projects'}/>}/>
           <Route path='blog' element={<PostsLayout title={'blog'}/>}/>
