@@ -23,7 +23,7 @@ function PostsLayout({title}: PostsLayoutProps) {
                             <h4>{post.description}</h4>
                         </header>
                         <a href={title === 'projects' ? post.url : `/blog/${post.url}`}
-                        className="image fit"><img src={post.imageUrl}/></a>
+                        className="image fit"><img src={`/myWebsite/${post.imageUrl}`}/></a>
                     </article>
                 ))}
             </section>
