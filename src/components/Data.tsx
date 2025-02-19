@@ -73,7 +73,7 @@ export const myCollections: {[key: string]: Post[]} = {
             description: 'Why My School Stopped Me From Talking At Graduation',
             url: 'graduation',
             imageUrl: '/images/graduation.png',
-            details: 'At my high school, you had to audition to give the valedictorian speech at graduation. Which really miffed me because I was actually the galedictorian at the time of the audition. Unfortunately, my speech was not chosen.'
+            details: 'At my high school, you had to audition to give the valedictorian speech at graduation. Which really miffed me because I was actually the valedictorian at the time of the audition. Unfortunately, my speech was not chosen.'
         },
         {
             date: new Date('2011-12-25'),
