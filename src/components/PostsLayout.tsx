@@ -25,7 +25,7 @@ function PostsLayout({title}: PostsLayoutProps) {
     }
 
     // sort by date to render in chronological order
-    posts.sort((a, b) => a.date.getTime() - b.date.getTime());
+    posts.sort((a, b) => a.date.getTime() + b.date.getTime());
 
     return (
         <div id="main">
