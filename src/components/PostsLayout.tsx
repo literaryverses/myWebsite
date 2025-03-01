@@ -19,10 +19,10 @@ function PostsLayout({title}: PostsLayoutProps) {
                     <article key={post.date.toDateString()}>
                         <header>
                             <span className="date">{post.date.toDateString()}</span>
-                            <h2><a href={title === 'projects' ? post.url : `/myWebsite/#/blog/${post.url}`}>{post.title}</a></h2>
+                            <h2><a href={title === 'projects' ? post.url : `/myWebsite/#/${title}/${post.url}`}>{post.title}</a></h2>
                             <h4>{post.description}</h4>
                         </header>
-                        <a href={title === 'projects' ? post.url : `/myWebsite/#/blog/${post.url}`}
+                        <a href={title === 'projects' ? post.url : `/myWebsite/#/${title}/${post.url}`}
                         className="image fit"><img src={`/myWebsite/${post.imageUrl}`}/></a>
                     </article>
                 ))}
