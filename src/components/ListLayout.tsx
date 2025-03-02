@@ -31,4 +31,4 @@ function ListLayout({type}: ListLayoutProps) {
     )
 }
 
-export default ListLayout
+export default ListLayout;

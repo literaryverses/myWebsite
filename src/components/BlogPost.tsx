@@ -58,4 +58,4 @@ function BlogPost() {
     )
 }
 
-export default BlogPost
+export default BlogPost;

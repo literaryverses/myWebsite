@@ -52,4 +52,4 @@ function PostsLayout({type}: PostsLayoutProps) {
     )
 }
 
-export default PostsLayout
+export default PostsLayout;

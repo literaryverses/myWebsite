@@ -37,4 +37,4 @@ function Footer({mySocials}: FooterProps) {
     )
 }
 
-export default Footer
+export default Footer;
