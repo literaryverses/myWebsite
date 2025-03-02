@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from 'react-router';
-import { useEffect, useState } from 'react';
-import Markdown from 'react-markdown';
 import { myLists } from '../components/Data';
+import ReadMDFile from '../components/ReadMDFile';
 
 type ReadPageProps = {
   readId: string;
@@ -25,24 +24,6 @@ function ReadPage() {
 
   const gotoChapter = (chapter: number) =>
     navigate(`/reads/${readId}/${formatChapterId(chapter)}`);
-
-  const [markdownContent, setMarkdownContent] = useState<string>('');
-
-  useEffect(() => {
-    fetch(`/myWebsite/reads/${readId}/${chapterId}.md`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Failed to fetch the file');
-        }
-        return res.text();
-      })
-      .then((text) => {
-        setMarkdownContent(text);
-      })
-      .catch((error) => {
-        console.error('Error loading text file:', error);
-      });
-  }, [chapterId]);
 
   return (
     <div id="main">
@@ -74,16 +55,14 @@ function ReadPage() {
           >
             <option value="">- Chapters -</option>
             {Array.from({ length: maxChapter + 1 }, (_, chapter) => (
-              <option value={chapter}>{formatChapterId(chapter)}</option>
+              <option value={chapter} key={chapter}>
+                {formatChapterId(chapter)}
+              </option>
             ))}
-            {/* <option value="1">Manufacturing</option>
-                        <option value="1">Shipping</option>
-                        <option value="1">Administration</option>
-                        <option value="1">Human Resources</option> */}
           </select>
         </div>
         <hr />
-        <Markdown>{markdownContent}</Markdown>
+        <ReadMDFile readId={readId} chapterId={chapterId} />
         <hr />
         <ul className="actions fit">
           <li>
@@ -103,6 +82,21 @@ function ReadPage() {
             </button>
           </li>
         </ul>
+        <div className="col-12">
+          <select
+            className="demo-category"
+            id="demo-category"
+            value={chapterNum}
+            onChange={(e) => gotoChapter(Number(e.target.value))}
+          >
+            <option value="">- Chapters -</option>
+            {Array.from({ length: maxChapter + 1 }, (_, chapter) => (
+              <option value={chapter} key={chapter}>
+                {formatChapterId(chapter)}
+              </option>
+            ))}
+          </select>
+        </div>
       </section>
     </div>
   );
