@@ -87,7 +87,7 @@ export const myCollections: {[key: string]: PostDetails[]} = {
     'reviews': []
 }
 
-export const myReads: {[key: string]: PostBasic[]} = {
+export const myLists: {[key: string]: PostBasic[]} = {
     'reads': [
         {   
             date: new Date('2025-08-20'),
