@@ -4,7 +4,7 @@ import List from "../components/List";
 
 type ListPageProps = {
     title: string
-}
+};
 
 function ListPage({title}: ListPageProps) {
     const posts: PostBasic[] = myLists[title];

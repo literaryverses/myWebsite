@@ -4,7 +4,7 @@ import Grid from "../components/Grid";
 
 type GridPageProps = {
     title: string
-}
+};
 
 function GridPage({title}: GridPageProps) {
     let posts: PostDetails[] = [];

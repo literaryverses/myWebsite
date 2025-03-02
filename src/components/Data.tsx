@@ -92,7 +92,7 @@ export const myCollections: {[key: string]: PostDetails[]} = {
         },
     ],
     'reviews': []
-}
+};
 
 export const myLists: {[key: string]: PostBasic[]} = {
     'reads': [
@@ -102,4 +102,4 @@ export const myLists: {[key: string]: PostBasic[]} = {
             url: 'moby_dick'
         },
     ]
-}
+};

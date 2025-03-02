@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 type GridProps = {
     items: PostDetails[] | PostBasic[]
-}
+};
 
 function Grid({items}: GridProps) {
 

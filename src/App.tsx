@@ -11,7 +11,7 @@ function App() {
 
   const RedirectToRead = () => {
     const { readId } = useParams();
-    return <Navigate to={`/reads/${readId}/0`} replace />;
+    return <Navigate to={`/reads/${readId}/000`} replace />;
   }
 
   return (

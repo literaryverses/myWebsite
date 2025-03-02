@@ -1,4 +1,4 @@
-export type Socials = {[key: string]: string}
+export type Socials = {[key: string]: string};
 
 export type PostDetails = {
     date: Date,
@@ -7,10 +7,10 @@ export type PostDetails = {
     url: string,
     imageUrl: string,
     details?: string
-}
+};
 
 export type PostBasic = {
     date?: Date,
     name: string,
     url: string
-}
+};

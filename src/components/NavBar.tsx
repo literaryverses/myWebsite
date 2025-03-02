@@ -8,7 +8,7 @@ type NavProps = {
 
 
 function NavBar({mySocials, currPath}: NavProps) {
-    console.log(currPath)
+    console.log(currPath);
     return(
         <nav id="nav">
             <ul className="links">

@@ -7,10 +7,10 @@ import NoPage from "../pages/NoPage";
 function BlogPost() {
     const [paragraphs, setParagraphs] = useState<string[][]>([]);
 
-    const params = useParams()
+    const params = useParams();
     const blogId: string = params.blogId as string;
     const myPost: PostDetails | undefined = myCollections['blog'].find((post: PostDetails) => (
-        post.url === blogId))
+        post.url === blogId));
 
     if (!myPost) {
         return NoPage()

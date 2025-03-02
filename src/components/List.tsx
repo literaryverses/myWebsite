@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 type ListProps = {
     items: PostDetails[] | PostBasic[]
-}
+};
 
 function List({items}: ListProps) {
 
