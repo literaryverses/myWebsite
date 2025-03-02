@@ -4,11 +4,10 @@ type PaginationProps = {
   totalPages: number;
   currentPage: number;
   label: string;
-  title: string;
   gotoPage: (page: number) => void;
 };
 
-function Pagination({ totalPages, currentPage, label, title, gotoPage}: PaginationProps) {
+function Pagination({ totalPages, currentPage, label, gotoPage}: PaginationProps) {
     const [page, setPage] = useState(currentPage);
     
     useEffect(() => {
@@ -45,8 +44,8 @@ function Pagination({ totalPages, currentPage, label, title, gotoPage}: Paginati
           <option value="">- {label} -</option>
           {Array.from({ length: totalPages + 1 }, (_, thisPage) => (
             <option value={thisPage} key={thisPage}>
-                {label} {thisPage}
-              {/* {label} {thisPage}{title ? `: ${title}` : ''} */}
+                {/* {label} {thisPage} */}
+              {label} {thisPage}
             </option>
           ))}
         </select>

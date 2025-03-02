@@ -4,10 +4,9 @@ import Markdown from 'react-markdown';
 type ReadMDFileProps = {
   dir: string;
   file: string;
-  setTitle: (title: string) => void;
 };
 
-function ReadMDFile({ dir, file, setTitle }: ReadMDFileProps) {
+function ReadMDFile({ dir, file }: ReadMDFileProps) {
   const [markdownContent, setMarkdownContent] = useState<string>('');
 
   useEffect(() => {
@@ -20,9 +19,6 @@ function ReadMDFile({ dir, file, setTitle }: ReadMDFileProps) {
       })
       .then((text) => {
         setMarkdownContent(text);
-        const lines = text.split('\n');
-        console.log(lines.filter(line => line.trim() !== "")[1]);
-        setTitle(lines.filter(line => line.trim() !== "")[1]);
       })
       .catch((error) => {
         console.error('Error loading text file:', error);

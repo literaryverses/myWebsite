@@ -12,7 +12,6 @@ type ReadPageProps = {
 function ReadPage() {
   const { readId, chapterId } = useParams<ReadPageProps>();
   const navigate = useNavigate();
-  const [title, setTitle] = useState<string>('');
 
   const maxChapter: number = Number(
     myLists['reads'].find((read) => read.url === readId)?.details
@@ -29,11 +28,11 @@ function ReadPage() {
   return (
     <div id="main">
       <section className="post">
-        <Pagination totalPages={maxChapter} currentPage={chapterNum} label={'Chapter'} title={title} gotoPage={gotoChapter} />
+        <Pagination totalPages={maxChapter} currentPage={chapterNum} label={'Chapter'} gotoPage={gotoChapter} />
         <hr />
-        <ReadMDFile dir={`reads/${readId}`} file={String(chapterId)} setTitle={setTitle} />
+        <ReadMDFile dir={`reads/${readId}`} file={String(chapterId)} />
         <hr />
-        <Pagination totalPages={maxChapter} currentPage={chapterNum} label={'Chapter'} title={title} gotoPage={gotoChapter} />
+        <Pagination totalPages={maxChapter} currentPage={chapterNum} label={'Chapter'} gotoPage={gotoChapter} />
       </section>
     </div>
   );
