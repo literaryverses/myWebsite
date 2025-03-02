@@ -1,5 +1,6 @@
 import { myCollections } from "./Data"
 import { Post } from "./Types";
+import { Link } from "react-router";
 
 type PostsLayoutProps = {
     type: string
@@ -11,7 +12,7 @@ function PostsLayout({type}: PostsLayoutProps) {
     if (type === 'projects') {
         posts = myCollections[type];
     } else if (type === 'reviews') {
-        posts = myCollections['blog'].filter(post => post.url.includes('/myWebsite/#/reviews/'));
+        posts = myCollections['blog'].filter(post => post.url.includes('review'));
     } else {
         // everything for blog
         posts = Object.entries(myCollections)
@@ -19,7 +20,7 @@ function PostsLayout({type}: PostsLayoutProps) {
         .map(([type, value]) => 
             value.map(post => ({
                 ...post,
-                'url': `/myWebsite/#/${type}/${post.url}`,
+                'url': `/${type}/${post.url}`,
             }))
         )
         .flat();
@@ -39,7 +40,7 @@ function PostsLayout({type}: PostsLayoutProps) {
                     <article key={post.date.toDateString()}>
                         <header>
                             <span className="date">{post.date.toDateString()}</span>
-                            <h2><a href={post.url}>{post.title}</a></h2>
+                            <h2><Link to={post.url}>{post.title}</Link></h2>
                             <h4>{post.description}</h4>
                         </header>
                         <a href={post.url}

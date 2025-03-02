@@ -1,5 +1,6 @@
 import { myLists } from "./Data"
 import { ItemList } from "./Types";
+import { Link } from "react-router";
 
 type ListLayoutProps = {
     type: string
@@ -20,7 +21,7 @@ function ListLayout({type}: ListLayoutProps) {
                     <article key={post.date.toDateString()}>
                         <header>
                             <span className="date">{post.date.toDateString()}</span>
-                            <h2><a href={`/myWebsite/#/${type}/${post.url}`}>{post.title}</a></h2>
+                            <h2><Link to={`/${type}/${post.url}`}>{post.title}</Link></h2>
                         </header>
                         {index < items.length - 1 && <hr />}
                     </article>
