@@ -36,7 +36,7 @@ const CustomMarkdown = ({
     let match;
 
     while ((match = regex.exec(text)) !== null) {
-      const [fullMatch, word, id] = match;
+      const [_, word, id] = match;
       const key = id as keyof typeof footnotes;
       const beforeText = text.slice(lastIndex, match.index);
 
