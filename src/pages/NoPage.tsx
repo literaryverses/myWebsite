@@ -1,3 +1,5 @@
+import '../assets/css/main.css'
+
 function NoPage() {
     return (
         <div id="main">
@@ -10,4 +12,4 @@ function NoPage() {
     )
 }
 
-export default NoPage
+export default NoPage;

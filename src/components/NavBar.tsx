@@ -44,4 +44,4 @@ function NavBar({mySocials, currPath}: NavProps) {
     )
 }
 
-export default NavBar
+export default NavBar;

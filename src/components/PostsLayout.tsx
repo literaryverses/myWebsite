@@ -11,7 +11,7 @@ function PostsLayout({title}: PostsLayoutProps) {
     if (title === 'projects') {
         posts = myCollections[title];
     } else if (title === 'reviews') {
-        posts = myCollections['blog'].filter(post => post.url.includes('/myWebsite/#/reviews/'));
+        posts = myCollections['blog'].filter(post => post.url.includes('reviews'));
     } else {
         // everything for blog
         posts = Object.entries(myCollections)

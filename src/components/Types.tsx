@@ -1,15 +1,16 @@
 export type Socials = {[key: string]: string}
 
-export type Post = {
+export type PostDetails = {
     date: Date,
-    title: string,
+    name: string,
     description: string,
     url: string,
     imageUrl: string,
     details?: string
 }
 
-export type  Item = {
-    date: Date,
-    title: string,
+export type PostBasic = {
+    date?: Date,
+    name: string,
+    url: string
 }
