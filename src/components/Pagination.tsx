@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 type PaginationProps = {
   totalPages: number;
@@ -7,34 +7,39 @@ type PaginationProps = {
   gotoPage: (page: number) => void;
 };
 
-function Pagination({ totalPages, currentPage, label, gotoPage}: PaginationProps) {
-    const [page, setPage] = useState(currentPage);
-    
-    useEffect(() => {
-        setPage(currentPage);
-    }, [currentPage]);
-    
-    return (
-        <>
-        <ul className="actions fit">
+function Pagination({
+  totalPages,
+  currentPage,
+  label,
+  gotoPage,
+}: PaginationProps) {
+  const [page, setPage] = useState(currentPage);
+
+  useEffect(() => {
+    setPage(currentPage);
+  }, [currentPage]);
+
+  return (
+    <>
+      <ul className="actions fit">
         <li>
-            <button
-            className={`button primary ${page === 0 ? "disabled" : ""}`}
+          <button
+            className={`button primary ${page === 0 ? 'disabled' : ''}`}
             onClick={() => gotoPage(page - 1)}
-            >
+          >
             Previous
-            </button>
+          </button>
         </li>
         <li>
-            <button
-            className={`button primary ${page === totalPages ? "disabled" : ""}`}
+          <button
+            className={`button primary ${page === totalPages ? 'disabled' : ''}`}
             onClick={() => gotoPage(page + 1)}
-            >
+          >
             Next
-            </button>
+          </button>
         </li>
-        </ul>
-        <div className="col-12">
+      </ul>
+      <div className="col-12">
         <select
           className="demo-category"
           id="demo-category"
@@ -44,15 +49,14 @@ function Pagination({ totalPages, currentPage, label, gotoPage}: PaginationProps
           <option value="">- {label} -</option>
           {Array.from({ length: totalPages + 1 }, (_, thisPage) => (
             <option value={thisPage} key={thisPage}>
-                {/* {label} {thisPage} */}
+              {/* {label} {thisPage} */}
               {label} {thisPage}
             </option>
           ))}
         </select>
       </div>
-      </>
-    );
+    </>
+  );
 }
 
-    
 export default Pagination;
