@@ -26,7 +26,7 @@ function ReadMDFile({ dir, file }: ReadMDFileProps) {
   }, [file]);
 
   // return <Markdown>{markdownContent}</Markdown>;
-  return <CustomMarkdown markdownContent={markdownContent} />;
+  return <CustomMarkdown markdownContent={markdownContent} dir={dir}/>;
 }
 
 export default ReadMDFile;

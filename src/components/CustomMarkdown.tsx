@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Markdown from "react-markdown";
 import Modal from "./Modal";
 
-const footnotes = {
-    "1":  "[Ishmael](http://en.wikipedia.org/wiki/Ishmael): A wanderer, the older son of the biblical Abraham.",
-    "2": "Example Description"
-};
-
-const CustomMarkdown = ({ markdownContent }: { markdownContent: string }) => {
+const CustomMarkdown = ({ markdownContent, dir }: { markdownContent: string, dir: string }) => {
   const [modalContent, setModalContent] = useState< string | null>(null);
+  const [footnotes, setFootnotes] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    fetch(`/myWebsite/${dir}/footnotes.json`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch the file');
+        }
+        return res.json();
+      })
+      .then((notes) => {
+        setFootnotes(notes);
+      })
+      .catch((error) => {
+        console.error('Error loading text file:', error);
+      });
+  }, []);
 
   // function to extract @Example@1 pattern
   const renderCustomSyntax = (text: string) => {
-    const regex = /@([^@]+)@(\d+)/g; // Matches @word@id
+    const regex = /@([^@]+)@(\d+)/g;
     const parts = [];
     let lastIndex = 0;
     let match;
