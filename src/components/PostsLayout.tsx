@@ -17,15 +17,14 @@ function PostsLayout({title}: PostsLayoutProps) {
         .map(([key, value]) => 
             value.map(post => ({
                 ...post,
-                'title': key,
                 'url': `/myWebsite/#/${key}/${post.url}`,
             }))
         )
         .flat();
     }
 
-    // sort by date to render in chronological order
-    posts.sort((a, b) => a.date.getTime() - b.date.getTime());
+    // sort by date to render from newest to oldest
+    posts = posts.sort((a, b) =>  b.date.getTime() - a.date.getTime());
 
     return (
         <div id="main">
@@ -38,7 +37,7 @@ function PostsLayout({title}: PostsLayoutProps) {
                     <article key={post.date.toDateString()}>
                         <header>
                             <span className="date">{post.date.toDateString()}</span>
-                            <h2><a href={post.url}></a></h2>
+                            <h2><a href={post.url}>{post.title}</a></h2>
                             <h4>{post.description}</h4>
                         </header>
                         <a href={post.url}
