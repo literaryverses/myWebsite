@@ -16,13 +16,13 @@ function ListLayout({type}: ListLayoutProps) {
                 <hr/>
             </header>
             <section className="post">
-                {items.map((post: ItemList) => (
+                {items.map((post: ItemList, index: number) => (
                     <article key={post.date.toDateString()}>
                         <header>
                             <span className="date">{post.date.toDateString()}</span>
                             <h2><a href={`/myWebsite/#/${type}/${post.title}`}>{post.title}</a></h2>
                         </header>
-                        <hr/>
+                        {index < items.length - 1 && <hr />}
                     </article>
                 ))}
             </section>
