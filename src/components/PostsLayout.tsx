@@ -17,7 +17,6 @@ function PostsLayout({title}: PostsLayoutProps) {
         .map(([key, value]) => 
             value.map(post => ({
                 ...post,
-                'title': key,
                 'url': `/myWebsite/#/${key}/${post.url}`,
             }))
         )
@@ -38,7 +37,7 @@ function PostsLayout({title}: PostsLayoutProps) {
                     <article key={post.date.toDateString()}>
                         <header>
                             <span className="date">{post.date.toDateString()}</span>
-                            <h2><a href={post.url}></a></h2>
+                            <h2><a href={post.url}>{post.title}</a></h2>
                             <h4>{post.description}</h4>
                         </header>
                         <a href={post.url}
