@@ -1,9 +1,15 @@
-import { useState, useEffect } from "react";
-import Markdown from "react-markdown";
-import Modal from "./Modal";
+import { useState, useEffect } from 'react';
+import Markdown from 'react-markdown';
+import Modal from './Modal';
 
-const CustomMarkdown = ({ markdownContent, dir }: { markdownContent: string, dir: string }) => {
-  const [modalContent, setModalContent] = useState< string | null>(null);
+const CustomMarkdown = ({
+  markdownContent,
+  dir,
+}: {
+  markdownContent: string;
+  dir: string;
+}) => {
+  const [modalContent, setModalContent] = useState<string | null>(null);
   const [footnotes, setFootnotes] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -38,7 +44,7 @@ const CustomMarkdown = ({ markdownContent, dir }: { markdownContent: string, dir
         beforeText,
         <span
           key={match.index}
-          style={{ backgroundColor: "yellow", cursor: "pointer" }}
+          style={{ backgroundColor: 'yellow', cursor: 'pointer' }}
           onClick={() => setModalContent(footnotes[key])}
         >
           {word}
