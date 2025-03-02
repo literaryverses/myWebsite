@@ -5,6 +5,11 @@ export type Post = {
     title: string,
     description: string,
     url: string,
-    imageUrl: string
+    imageUrl: string,
     details?: string
+}
+
+export type  ItemList = {
+    date: Date,
+    title: string,
 }
