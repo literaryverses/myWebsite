@@ -3585,7 +3585,7 @@ input, select, textarea {
 
 			#header {
 				height: 14rem;
-				padding-bottom: 4rem;
+				padding-bottom: 7rem;
 			}
 
 		}
@@ -3593,7 +3593,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#header {
-				padding-bottom: 4rem;
+				padding-bottom: 5rem;
 			}
 
 				#header .logo {
