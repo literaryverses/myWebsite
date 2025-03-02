@@ -1,3 +1,5 @@
+import '../assets/css/main.css'
+
 function NoPage() {
     return (
         <div id="main">
