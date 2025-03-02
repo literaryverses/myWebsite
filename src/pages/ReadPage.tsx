@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useParams } from "react-router";
-import NoPage from "./NoPage";
 
 type ReadPageProps = {
     readId: string;
