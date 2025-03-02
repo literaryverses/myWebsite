@@ -48,7 +48,7 @@ export const myCollections: {[key: string]: PostDetails[]} = {
             date: new Date('2025-03-01'),
             name: 'Annotated Literature',
             description: 'Reading classics with spoonfed notes',
-            url: '/#/reads',
+            url: '/reads',
             imageUrl: '/images/book.png'
         },
     ],
