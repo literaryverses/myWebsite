@@ -7,7 +7,7 @@ type ReadMDFileProps = {
 };
 
 function ReadMDFile({ dir, file }: ReadMDFileProps) {
-  const [markdownContent, setMarkdownContent] = useState<string>('');
+  const [markdown, setMarkdown] = useState<string>('');
 
   useEffect(() => {
     fetch(`/myWebsite/${dir}/${file}.md`)
@@ -18,14 +18,14 @@ function ReadMDFile({ dir, file }: ReadMDFileProps) {
         return res.text();
       })
       .then((text) => {
-        setMarkdownContent(text);
+        setMarkdown(text);
       })
       .catch((error) => {
         console.error('Error loading text file:', error);
       });
   }, [file]);
 
-  return <CustomMarkdown markdownContent={markdownContent} dir={dir} />;
+  return <CustomMarkdown markdown={markdown} dir={dir} />;
 }
 
 export default ReadMDFile;

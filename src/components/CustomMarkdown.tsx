@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
 import Modal from './Modal';
+import remarkGfm from 'remark-gfm';
 
 const CustomMarkdown = ({
-  markdownContent,
+  markdown,
   dir,
 }: {
-  markdownContent: string;
+  markdown: string;
   dir: string;
 }) => {
-  const [modalContent, setModalContent] = useState<string | null>(null);
   const [footnotes, setFootnotes] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -28,47 +28,41 @@ const CustomMarkdown = ({
       });
   }, []);
 
-  // function to extract @Example@1 pattern
-  const renderCustomSyntax = (text: string) => {
-    const regex = /@([^@]+)@(\d+)/g;
-    const parts = [];
-    let lastIndex = 0;
-    let match;
-
-    while ((match = regex.exec(text)) !== null) {
-      const [_, word, id] = match;
-      const key = id as keyof typeof footnotes;
-      const beforeText = text.slice(lastIndex, match.index);
-
-      parts.push(
-        beforeText,
-        <span
-          key={match.index}
-          style={{ backgroundColor: 'yellow', cursor: 'pointer' }}
-          onClick={() => setModalContent(footnotes[key])}
-        >
-          {word}
-        </span>
+  const CustomLink: React.FC<{ href?: string; children?: React.ReactNode}> = ({
+    href,
+    children,
+  }) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const id = href?.replace("#", ""); // Extract the id from the href
+  
+    if (id && footnotes[id]) {
+      return (
+        <>
+          <span
+            style={{color: isHovered ? "blue" : "black",
+                backgroundColor: "yellow", cursor: "pointer"}}
+            onClick={() => setIsOpen(true)}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {children}
+          </span>
+          {isOpen && <Modal markdown={footnotes[id]} visibleHandler={() => setIsOpen(false)}/>}
+        </>
       );
-      lastIndex = regex.lastIndex;
     }
-
-    parts.push(text.slice(lastIndex));
-    return <>{parts}</>;
+    return <a href={href}>{children}</a>;
   };
 
   return (
-    <>
-      <Markdown
-        components={{
-          span: ({ children }) => <>{renderCustomSyntax(String(children))}</>,
-        }}
-      >
-        {markdownContent}
-      </Markdown>
-
-      <Modal content={modalContent} setContent={setModalContent} />
-    </>
+    <Markdown
+      children={markdown}
+      remarkPlugins={[remarkGfm]}
+      components={{
+        a: CustomLink
+      }}
+    />
   );
 };
 

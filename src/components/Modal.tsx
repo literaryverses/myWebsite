@@ -1,18 +1,16 @@
 import Markdown from 'react-markdown';
 import { createPortal } from 'react-dom';
-import reactBreaks from 'remark-breaks';
 
 type ModalProps = {
-  content: string | null;
-  setContent: (content: string | null) => void;
+  markdown: string | null;
+  visibleHandler: () => void;
 };
 
-const Modal = ({ content, setContent }: ModalProps) => {
+const Modal = ({ markdown, visibleHandler }: ModalProps) => {
   return (
     <>
-      {content &&
-        createPortal(
-          <div
+      {createPortal(
+          < span
             style={{
               position: 'fixed',
               top: '50%',
@@ -24,9 +22,9 @@ const Modal = ({ content, setContent }: ModalProps) => {
               zIndex: 1000,
             }}
           >
-            <Markdown>{content}</Markdown>
-            <button onClick={() => setContent(null)}>Close</button>
-          </div>,
+            <Markdown>{markdown}</Markdown>
+            <button className={'button primary small'} onClick={visibleHandler}>Close</button>
+          </span>,
           document.body
         )}
     </>
