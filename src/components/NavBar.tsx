@@ -15,10 +15,10 @@ function NavBar({ mySocials, currPath }: NavProps) {
           <Link to="/">Home</Link>
         </li>
         <li className={currPath === '/projects' ? 'active' : ''}>
-          <Link to="/projects">Software</Link>
+          <Link to="projects">Software</Link>
         </li>
         <li className={currPath === '/blog' ? 'active' : ''}>
-          <Link to="/blog">Writing</Link>
+          <Link to="blog">Writing</Link>
         </li>
         <li>
           <Link to="https://docs.google.com/document/d/1zm-OfQVMPlOHLiPrOa5dV4B50H4PQ3lI/edit?usp=sharing&ouid=116599078357656932597&rtpof=true&sd=true">
