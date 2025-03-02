@@ -28,27 +28,35 @@ const CustomMarkdown = ({
       });
   }, []);
 
-  const CustomLink: React.FC<{ href?: string; children?: React.ReactNode}> = ({
+  const CustomLink: React.FC<{ href?: string; children?: React.ReactNode }> = ({
     href,
     children,
   }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const id = href?.replace("#", ""); // Extract the id from the href
-  
+    const id = href?.replace('#', ''); // Extract the id from the href
+
     if (id && footnotes[id]) {
       return (
         <>
           <span
-            style={{color: isHovered ? "blue" : "black",
-                backgroundColor: "yellow", cursor: "pointer"}}
+            style={{
+              color: isHovered ? 'blue' : 'black',
+              backgroundColor: 'yellow',
+              cursor: 'pointer',
+            }}
             onClick={() => setIsOpen(true)}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
             {children}
           </span>
-          {isOpen && <Modal markdown={footnotes[id]} visibleHandler={() => setIsOpen(false)}/>}
+          {isOpen && (
+            <Modal
+              markdown={footnotes[id]}
+              visibleHandler={() => setIsOpen(false)}
+            />
+          )}
         </>
       );
     }
@@ -60,7 +68,7 @@ const CustomMarkdown = ({
       children={markdown}
       remarkPlugins={[remarkGfm]}
       components={{
-        a: CustomLink
+        a: CustomLink,
       }}
     />
   );
