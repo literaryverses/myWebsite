@@ -44,6 +44,13 @@ export const myCollections: {[key: string]: PostDetails[]} = {
             url: 'https://literaryverses.itch.io/spacey',
             imageUrl: '/images/spacey.png'
         },
+        {
+            date: new Date('2025-03-01'),
+            name: 'Annotated Literature',
+            description: 'Reading classics with spoonfed notes',
+            url: '/#/reads',
+            imageUrl: '/images/book.png'
+        },
     ],
     'blog': [
         {
