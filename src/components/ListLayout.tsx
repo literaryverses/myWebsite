@@ -20,7 +20,7 @@ function ListLayout({type}: ListLayoutProps) {
                     <article key={post.date.toDateString()}>
                         <header>
                             <span className="date">{post.date.toDateString()}</span>
-                            <h2><a href={`/myWebsite/#/${type}/${post.title}`}>{post.title}</a></h2>
+                            <h2><a href={`/myWebsite/#/${type}/${post.url}`}>{post.title}</a></h2>
                         </header>
                         {index < items.length - 1 && <hr />}
                     </article>
