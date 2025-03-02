@@ -1,24 +1,23 @@
-import Header from './Header'
-import NavBar from './NavBar'
-import Footer from './Footer'
-import { mySocials } from './Data'
-import { Outlet, useLocation } from 'react-router'
+import Header from './Header';
+import NavBar from './NavBar';
+import Footer from './Footer';
+import { mySocials } from './Data';
+import { Outlet, useLocation } from 'react-router';
 
 function Layout() {
-    const location = useLocation();
+  const location = useLocation();
 
-    return (
-        <>
-            <Header/>
+  return (
+    <>
+      <Header />
 
-            <NavBar mySocials={mySocials} currPath={location.pathname}/>
+      <NavBar mySocials={mySocials} currPath={location.pathname} />
 
-            <Outlet/>
+      <Outlet />
 
-            <Footer mySocials={mySocials}/>
-        </>
+      <Footer mySocials={mySocials} />
+    </>
+  );
+}
 
-    )
-  }
-  
-  export default Layout
+export default Layout;
