@@ -1,4 +1,4 @@
-import { Socials, Post } from "./Types";
+import { Socials, Post, Item } from "./Types";
 
 export const mySocials: Socials = {
     'Linkedin': 'https://www.linkedin.com/in/jayleeco',
@@ -83,5 +83,14 @@ export const myCollections: {[key: string]: Post[]} = {
             imageUrl: '/images/christmas.png',
             details: 'I wrote this for a few friends back in high school.'
         },
+    ],
+    'reviews': [
     ]
 }
+
+export const myReads: Item[] = [
+    {
+        date: new Date('2025-08-20'),
+        title: 'The Annotated Moby Dick',
+    }
+]
