@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react"
 import { useParams } from "react-router";
-import NoPage from "./NoPage";
 
 type ReadPageProps = {
     readId: string;
@@ -8,7 +6,6 @@ type ReadPageProps = {
 }
 
 function ReadPage() {
-    const [paragraphs, setParagraphs] = useState<string[][]>([]);
 
     let {readId, chapterId} = useParams<ReadPageProps>()
     return(<div id='main'>{readId} and {chapterId}</div>)
