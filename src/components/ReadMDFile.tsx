@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Markdown from 'react-markdown';
+import CustomMarkdown from './CustomMarkdown';
 
 type ReadMDFileProps = {
   dir: string;
@@ -25,7 +25,8 @@ function ReadMDFile({ dir, file }: ReadMDFileProps) {
       });
   }, [file]);
 
-  return <Markdown>{markdownContent}</Markdown>;
+  // return <Markdown>{markdownContent}</Markdown>;
+  return <CustomMarkdown markdownContent={markdownContent} />;
 }
 
 export default ReadMDFile;
