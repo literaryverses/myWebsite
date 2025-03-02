@@ -12,7 +12,6 @@ function ReadPage() {
 
     let {readId, chapterId} = useParams<ReadPageProps>();
     const [markdownContent, setMarkdownContent] = useState<string>('');
-    const [hasError, setHasError] = useState<boolean>(false);
 
     useEffect(() => {
         fetch(`/myWebsite/reads/${readId}/${chapterId}.md`)
@@ -25,7 +24,9 @@ function ReadPage() {
             .then((text) => {
                 setMarkdownContent(text);
             })
-            .catch((error) => console.error("Error loading text file:", error));
+            .catch((error) => {
+                console.error("Error loading text file:", error)
+            });
     }, [readId, chapterId]);
 
 

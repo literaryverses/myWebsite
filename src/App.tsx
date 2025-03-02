@@ -6,12 +6,17 @@ import ListPage from "./pages/ListPage";
 import NoPage from "./pages/NoPage";
 import BlogPost from "./components/BlogPost";
 import ReadPage from "./pages/ReadPage";
+import { myLists } from "./components/Data";
 
 function App() {
 
   const RedirectToRead = () => {
     const { readId } = useParams();
-    return <Navigate to={`/reads/${readId}/000`} replace />;
+    if (myLists['reads'].find((read) => read.url === readId)) {
+      return <Navigate to={`/reads/${readId}/000`} replace />;
+    } else {
+      return <NoPage />;
+    }
   }
 
   return (
