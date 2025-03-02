@@ -3593,7 +3593,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#header {
-				padding-bottom: 3rem;
+				padding-bottom: 4rem;
 			}
 
 				#header .logo {
@@ -3619,7 +3619,7 @@ input, select, textarea {
 		height: 4rem;
 		line-height: 4rem;
 		margin: -4rem auto 0 auto;
-		overflow: hidden;
+		overflow: auto;
 		padding: 0 2rem 0 0;
 		position: relative;
 		width: calc(100% - 4rem);
@@ -3745,13 +3745,18 @@ input, select, textarea {
 			margin-bottom: 0;
 		}
 
-		@media screen and (max-width: 980px) {
+		/* @media screen and (max-width: 768px) {
 
 			#nav {
-				display: none;
+				height: 3rem;
+				line-height: 3rem;
+			}
+			
+			#nav ul.links li a {
+				font-size: 0.75rem;
 			}
 
-		}
+		} */
 
 /* Main */
 
