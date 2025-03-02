@@ -61,7 +61,7 @@ const CustomMarkdown = ({
     <>
       <Markdown
         components={{
-          p: ({ children }) => <p>{renderCustomSyntax(String(children))}</p>,
+          span: ({ children }) => <>{renderCustomSyntax(String(children))}</>,
         }}
       >
         {markdownContent}

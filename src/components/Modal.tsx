@@ -1,5 +1,6 @@
 import Markdown from 'react-markdown';
 import { createPortal } from 'react-dom';
+import reactBreaks from 'remark-breaks';
 
 type ModalProps = {
   content: string | null;
