@@ -2,24 +2,24 @@ import { myCollections } from "./Data"
 import { Post } from "./Types";
 
 type PostsLayoutProps = {
-    title: string
+    type: string
 }
 
-function PostsLayout({title}: PostsLayoutProps) {
+function PostsLayout({type}: PostsLayoutProps) {
     let posts: Post[] = [];
 
-    if (title === 'projects') {
-        posts = myCollections[title];
-    } else if (title === 'reviews') {
+    if (type === 'projects') {
+        posts = myCollections[type];
+    } else if (type === 'reviews') {
         posts = myCollections['blog'].filter(post => post.url.includes('/myWebsite/#/reviews/'));
     } else {
         // everything for blog
         posts = Object.entries(myCollections)
-        .filter(([key]) => key !== 'projects')
-        .map(([key, value]) => 
+        .filter(([type]) => type !== 'projects')
+        .map(([type, value]) => 
             value.map(post => ({
                 ...post,
-                'url': `/myWebsite/#/${key}/${post.url}`,
+                'url': `/myWebsite/#/${type}/${post.url}`,
             }))
         )
         .flat();
@@ -30,11 +30,11 @@ function PostsLayout({title}: PostsLayoutProps) {
 
     return (
         <div id="main">
-            <section className="posts">
-                <header className="major">
-                    <h1>{title}</h1>
-                </header>
+            <header className="major" style={{textAlign: 'left'}}>
+                <h1>{type}</h1>
                 <hr/>
+            </header>
+            <section className="posts">
                 {posts.map((post: Post) => (
                     <article key={post.date.toDateString()}>
                         <header>

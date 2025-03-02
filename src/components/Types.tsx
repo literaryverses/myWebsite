@@ -12,4 +12,5 @@ export type Post = {
 export type  ItemList = {
     date: Date,
     title: string,
+    url: string
 }

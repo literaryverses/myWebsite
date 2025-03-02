@@ -87,9 +87,12 @@ export const myCollections: {[key: string]: Post[]} = {
     'reviews': []
 }
 
-export const myReads: ItemList[] = [
-    {
-        date: new Date('2025-08-20'),
-        title: 'The Annotated Moby Dick',
-    }
-]
+export const myLists: {[key: string]: ItemList[]} = {
+    'reads': [
+        {   
+            date: new Date('2025-08-20'),
+            title: 'The Annotated Moby Dick',
+            url: 'moby_dick'
+        },
+    ]
+}
