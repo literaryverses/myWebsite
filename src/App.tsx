@@ -10,7 +10,7 @@ import Layout from './components/Layout';
 import GridPage from './pages/GridPage';
 import ListPage from './pages/ListPage';
 import NoPage from './pages/NoPage';
-import BlogPost from './components/BlogPost';
+import BlogPost from './pages/BlogPost';
 import ReadPage from './pages/ReadPage';
 import { myLists } from './components/Data';
 

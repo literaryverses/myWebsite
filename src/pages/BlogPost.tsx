@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { myCollections } from './Data';
-import { PostDetails } from './Types';
-import NoPage from '../pages/NoPage';
+import { myCollections } from '../components/Data';
+import { PostDetails } from '../components/Types';
+import NoPage from './NoPage';
 
 function BlogPost() {
   const [paragraphs, setParagraphs] = useState<string[][]>([]);
@@ -42,7 +42,7 @@ function BlogPost() {
           <h1>{myPost.name}</h1>
           <p>{myPost.description}</p>
         </header>
-        {myPost.details && (
+        {typeof myPost.details === 'string' && (
           <p>
             <em>{myPost.details}</em>
           </p>
