@@ -41,8 +41,8 @@ const CustomMarkdown = ({
         <>
           <span
             style={{
-              color: isHovered ? 'blue' : 'black',
-              backgroundColor: 'yellow',
+              color: isHovered ? '#18bfef' : 'black',
+              backgroundColor: '#efb418',
               cursor: 'pointer',
             }}
             onClick={() => setIsOpen(true)}

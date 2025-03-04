@@ -22,7 +22,7 @@ const Modal = ({ markdown, visibleHandler }: ModalProps) => {
             zIndex: 1000,
           }}
         >
-          <Markdown>{markdown}</Markdown>
+          <Markdown children={markdown} />
           <button className={'button primary small'} onClick={visibleHandler}>
             Close
           </button>
